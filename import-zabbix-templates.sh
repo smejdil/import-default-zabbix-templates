@@ -1,5 +1,8 @@
 #!/bin/sh
 
+mkdir xml
+mkdir tasks
+
 rm -rf ./xml/*.xml
 rm -rf ./tasks/*.yml
 rm -rf import-templates.yml

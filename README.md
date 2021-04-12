@@ -43,7 +43,7 @@ cd /tmp
 git clone --branch ${ZABBIX_VERISON} https://git.zabbix.com/scm/zbx/zabbix.git
 tar cvzf zabbix-templates-${ZABBIX_VERISON}.tar.gz zabbix/templates/
 
-cd "project_dir"
+cd ~/import-default-zabbix-templates
 
 ./import-zabbix-templates.sh
 ```
