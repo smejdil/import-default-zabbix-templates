@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# Create tasks*.yml for import Zabbix template by Ansible
+#
+# Lukas Maly <Iam@LukasMaly.NET> 13.4.2021
+#
 
 # Check dir xml
 if [[ -d xml ]]
@@ -25,8 +30,15 @@ then
     rm -rf import-templates.yml
 fi
 
-# Extract templates
-tar xzf /tmp/zabbix-templates-${ZABBIX_VERISON}.tar.gz
+# Check dir tasks
+if [[ -d zabbix ]]
+then
+    echo "Directory zabbix exists on your filesystem."
+    rm -rf ./zabbix/
+else
+    # Extract templates
+    tar xzf /tmp/zabbix-templates-${ZABBIX_VERISON}.tar.gz    
+fi
 
 # Copy all xml files to xml directory for easy processing
 for f in `find zabbix/templates/ -name '*.xml' | grep -v media`; do
