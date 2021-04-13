@@ -35,9 +35,10 @@ if [[ -d zabbix ]]
 then
     echo "Directory zabbix exists on your filesystem."
     rm -rf ./zabbix/
-    # Extract templates
-    tar xzf /tmp/zabbix-templates-${ZABBIX_VERISON}.tar.gz        
 fi
+
+# Extract templates
+tar xzf /tmp/zabbix-templates-${ZABBIX_VERISON}.tar.gz        
 
 # Copy all xml files to xml directory for easy processing
 for f in `find zabbix/templates/ -name '*.xml' | grep -v media`; do
