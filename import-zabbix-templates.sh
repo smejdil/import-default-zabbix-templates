@@ -30,14 +30,13 @@ then
     rm -rf import-templates.yml
 fi
 
-# Check dir tasks
+# Check dir zabbix
 if [[ -d zabbix ]]
 then
     echo "Directory zabbix exists on your filesystem."
     rm -rf ./zabbix/
-else
     # Extract templates
-    tar xzf /tmp/zabbix-templates-${ZABBIX_VERISON}.tar.gz    
+    tar xzf /tmp/zabbix-templates-${ZABBIX_VERISON}.tar.gz        
 fi
 
 # Copy all xml files to xml directory for easy processing
