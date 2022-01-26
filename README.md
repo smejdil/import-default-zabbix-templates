@@ -43,7 +43,7 @@ pip3 install zabbix-api
 ansible-galaxy collection install -r requirements.yml
 Process install dependency map
 Starting collection install process
-Installing 'community.zabbix:1.3.0' to '/root/.ansible/collections/ansible_collections/community/zabbix'
+Installing 'community.zabbix:1.5.1' to '/root/.ansible/collections/ansible_collections/community/zabbix'
 ```
 
 ### Make and run playbook
@@ -53,8 +53,13 @@ export ZABBIX_PASSWORD=*******************
 export ZABBIX_VERISON="6.0.0beta3"
 
 cd /tmp
-git clone --branch ${ZABBIX_VERISON} https://git.zabbix.com/scm/zbx/zabbix.git
+git clone --branch ${ZABBIX_VERISON} https://git.zabbix.com/scm/zbx/zabbix.git --depth 1
+cd zabbix
+git fetch --unshallow
+cd ../
+
 tar cvzf zabbix-templates-${ZABBIX_VERISON}.tar.gz zabbix/templates/
+mv zabbix-templates-${ZABBIX_VERISON}.tar.gz ~/import-default-zabbix-templates
 
 cd ~/import-default-zabbix-templates
 
