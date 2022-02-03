@@ -40,6 +40,14 @@ fi
 # Extract templates
 tar xzf /tmp/zabbix-templates-${ZABBIX_VERISON}.tar.gz        
 
+# Delete broken Template :-(
+rm -rf zabbix/templates/net/cisco/*
+rm -rf zabbix/templates/net/mellanox_snmp/*
+rm -rf zabbix/templates/net/mikrotik_snmp/*
+rm -rf zabbix/templates/os/linux_prom/*
+rm -rf zabbix/templates/os/windows_agent/*
+rm -rf zabbix/templates/os/windows_agent_active/*
+
 # Copy all xml files to xml directory for easy processing
 for f in `find zabbix/templates/ -name '*.xml' | grep -v media`; do
 cp $f ./xml/
@@ -52,6 +60,7 @@ cat << xYMLx >> tasks/$t.yml
 ---
 - name: Import $t
   zabbix_template:
+    validate_certs: "{{ validate_certs }}"
     server_url: "{{ server_url }}"
     login_user: "{{ lookup('env','ZABBIX_USER') }}"
     login_password: "{{ lookup('env','ZABBIX_PASSWORD') }}"
@@ -65,6 +74,13 @@ if [[ -f "tasks/template_db_mongodb_cluster.xml.yml" ]]
 then
     echo "File template_db_mongodb_cluster.xml.yml exists on your filesystem. Template template_db_mongodb_cluster.xml can't import :-("
     rm tasks/template_db_mongodb_cluster.xml.yml
+fi
+
+# Failed import :-(
+if [[ -f "tasks/template_module_generic_snmp_snmp.xml.yml" ]]
+then
+    echo "File template_module_generic_snmp_snmp.xml.yml The error was: zabbix_api.APITimeout: HTTP read timeout :-("
+    rm tasks/template_module_generic_snmp_snmp.xml.yml
 fi
 
 # Create new ansible playbook with included tasks

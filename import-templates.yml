@@ -9,6 +9,7 @@
 
   tasks:
     - include_tasks: tasks/00template_module_icmp_ping.xml.yml
+    - include_tasks: tasks/00template_module_icmp_ping.xml.yml~
     - include_tasks: tasks/prostar_mppt_snmp.xml.yml
     - include_tasks: tasks/prostar_pwm_snmp.xml.yml
     - include_tasks: tasks/sunsaver_mppt_snmp.xml.yml
@@ -17,11 +18,12 @@
     - include_tasks: tasks/template_app_apache_agent.xml.yml
     - include_tasks: tasks/template_app_apache_http.xml.yml
     - include_tasks: tasks/template_app_ceph_agent2.xml.yml
+    - include_tasks: tasks/template_app_certificate_agent2.xml.yml
     - include_tasks: tasks/template_app_docker.xml.yml
     - include_tasks: tasks/template_app_elasticsearch_http.xml.yml
     - include_tasks: tasks/template_app_etcd_http.xml.yml
-    - include_tasks: tasks/template_app_exchange_active.xml.yml
     - include_tasks: tasks/template_app_exchange.xml.yml
+    - include_tasks: tasks/template_app_exchange_active.xml.yml
     - include_tasks: tasks/template_app_ftp_service.xml.yml
     - include_tasks: tasks/template_app_generic_java_jmx.xml.yml
     - include_tasks: tasks/template_app_hadoop_http.xml.yml
@@ -29,16 +31,18 @@
     - include_tasks: tasks/template_app_haproxy_http.xml.yml
     - include_tasks: tasks/template_app_http_service.xml.yml
     - include_tasks: tasks/template_app_https_service.xml.yml
-    - include_tasks: tasks/template_app_iis_agent_active.xml.yml
     - include_tasks: tasks/template_app_iis_agent.xml.yml
+    - include_tasks: tasks/template_app_iis_agent_active.xml.yml
     - include_tasks: tasks/template_app_imap_service.xml.yml
     - include_tasks: tasks/template_app_kafka_jmx.xml.yml
     - include_tasks: tasks/template_app_ldap_service.xml.yml
     - include_tasks: tasks/template_app_memcached.xml.yml
     - include_tasks: tasks/template_app_nginx_agent.xml.yml
     - include_tasks: tasks/template_app_nginx_http.xml.yml
+    - include_tasks: tasks/template_app_nginx_plus_http.xml.yml
     - include_tasks: tasks/template_app_nntp_service.xml.yml
     - include_tasks: tasks/template_app_ntp_service.xml.yml
+    - include_tasks: tasks/template_app_pfsense_snmp.xml.yml
     - include_tasks: tasks/template_app_php-fpm_agent.xml.yml
     - include_tasks: tasks/template_app_php-fpm_http.xml.yml
     - include_tasks: tasks/template_app_pop_service.xml.yml
@@ -49,86 +53,110 @@
     - include_tasks: tasks/template_app_smtp_service.xml.yml
     - include_tasks: tasks/template_app_squid_snmp.xml.yml
     - include_tasks: tasks/template_app_ssh_service.xml.yml
+    - include_tasks: tasks/template_app_systemd.xml.yml
     - include_tasks: tasks/template_app_telnet_service.xml.yml
     - include_tasks: tasks/template_app_tomcat_jmx.xml.yml
     - include_tasks: tasks/template_app_vmware.xml.yml
+    - include_tasks: tasks/template_app_wildfly_domain_jmx.xml.yml
+    - include_tasks: tasks/template_app_wildfly_server_jmx.xml.yml
     - include_tasks: tasks/template_app_zabbix_proxy.xml.yml
     - include_tasks: tasks/template_app_zabbix_server.xml.yml
     - include_tasks: tasks/template_app_zookeeper_http.xml.yml
     - include_tasks: tasks/template_db_cassandra_jmx.xml.yml
     - include_tasks: tasks/template_db_clickhouse_http.xml.yml
+    - include_tasks: tasks/template_db_gridgain_jmx.xml.yml
     - include_tasks: tasks/template_db_ignite_jmx.xml.yml
     - include_tasks: tasks/template_db_mongodb.xml.yml
     - include_tasks: tasks/template_db_mssql_odbc.xml.yml
-    - include_tasks: tasks/template_db_mysql_agent2.xml.yml
     - include_tasks: tasks/template_db_mysql_agent.xml.yml
+    - include_tasks: tasks/template_db_mysql_agent2.xml.yml
     - include_tasks: tasks/template_db_mysql_odbc.xml.yml
     - include_tasks: tasks/template_db_oracle_agent2.xml.yml
-    - include_tasks: tasks/template_db_oracle_odbc.xml.yml
-    - include_tasks: tasks/template_db_postgresql_agent2.xml.yml
     - include_tasks: tasks/template_db_postgresql.xml.yml
+    - include_tasks: tasks/template_db_postgresql_agent2.xml.yml
     - include_tasks: tasks/template_db_redis.xml.yml
     - include_tasks: tasks/template_module_ether_like_snmp.xml.yml
-    - include_tasks: tasks/template_module_generic_snmp_snmp.xml.yml
     - include_tasks: tasks/template_module_host_resources_snmp.xml.yml
     - include_tasks: tasks/template_module_interfaces_simple_snmp.xml.yml
     - include_tasks: tasks/template_module_interfaces_snmp.xml.yml
     - include_tasks: tasks/template_module_interfaces_win_snmp.xml.yml
-    - include_tasks: tasks/template_module_smart_agent2_active.xml.yml
     - include_tasks: tasks/template_module_smart_agent2.xml.yml
+    - include_tasks: tasks/template_module_smart_agent2_active.xml.yml
     - include_tasks: tasks/template_module_zabbix_agent.xml.yml
     - include_tasks: tasks/template_net_alcatel_timetra_snmp.xml.yml
     - include_tasks: tasks/template_net_arista_snmp.xml.yml
     - include_tasks: tasks/template_net_brocade_fc_sw_snmp.xml.yml
     - include_tasks: tasks/template_net_brocade_foundry_sw_snmp.xml.yml
-    - include_tasks: tasks/template_net_cisco_catalyst_3750_24fs_snmp.xml.yml
-    - include_tasks: tasks/template_net_cisco_catalyst_3750_24ps_snmp.xml.yml
-    - include_tasks: tasks/template_net_cisco_catalyst_3750_24ts_snmp.xml.yml
-    - include_tasks: tasks/template_net_cisco_catalyst_3750_48ps_snmp.xml.yml
-    - include_tasks: tasks/template_net_cisco_catalyst_3750_48ts_snmp.xml.yml
-    - include_tasks: tasks/template_net_cisco_snmp.xml.yml
     - include_tasks: tasks/template_net_dell_force_s_series_snmp.xml.yml
     - include_tasks: tasks/template_net_dlink_des7200_snmp.xml.yml
     - include_tasks: tasks/template_net_dlink_des_snmp.xml.yml
     - include_tasks: tasks/template_net_extreme_snmp.xml.yml
+    - include_tasks: tasks/template_net_f5_bigip_virt_snmp.xml.yml
     - include_tasks: tasks/template_net_generic_snmp.xml.yml
     - include_tasks: tasks/template_net_hp_hh3c_snmp.xml.yml
     - include_tasks: tasks/template_net_hp_hpn_snmp.xml.yml
     - include_tasks: tasks/template_net_huawei_snmp.xml.yml
     - include_tasks: tasks/template_net_intel_qlogic_infiniband_snmp.xml.yml
     - include_tasks: tasks/template_net_juniper_snmp.xml.yml
-    - include_tasks: tasks/template_net_mellanox_snmp.xml.yml
-    - include_tasks: tasks/template_net_mikrotik_snmp.xml.yml
     - include_tasks: tasks/template_net_netgear_snmp.xml.yml
     - include_tasks: tasks/template_net_qtech_snmp.xml.yml
     - include_tasks: tasks/template_net_tplink_snmp.xml.yml
     - include_tasks: tasks/template_net_ubiquiti_airos_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_aam1212-51_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_es3500-8pd_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_gs4012f_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_ies-500x_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_ies-6000_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_ies1248-51_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_mes-3528_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_mes3500-10_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_mes3500-24_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_mgs-3712_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_mgs-3712f_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_mgs3500-24s_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_mgs3520-28x_snmp.xml.yml
+    - include_tasks: tasks/template_net_zyxel_xgs-4728f_snmp.xml.yml
     - include_tasks: tasks/template_os_aix.xml.yml
     - include_tasks: tasks/template_os_freebsd.xml.yml
     - include_tasks: tasks/template_os_hp-ux.xml.yml
-    - include_tasks: tasks/template_os_linux_active.xml.yml
-    - include_tasks: tasks/template_os_linux_prom.xml.yml
-    - include_tasks: tasks/template_os_linux_snmp_snmp.xml.yml
     - include_tasks: tasks/template_os_linux.xml.yml
+    - include_tasks: tasks/template_os_linux_active.xml.yml
+    - include_tasks: tasks/template_os_linux_snmp_snmp.xml.yml
     - include_tasks: tasks/template_os_mac_os_x.xml.yml
     - include_tasks: tasks/template_os_openbsd.xml.yml
     - include_tasks: tasks/template_os_solaris.xml.yml
-    - include_tasks: tasks/template_os_windows_agent_active.xml.yml
-    - include_tasks: tasks/template_os_windows_agent.xml.yml
     - include_tasks: tasks/template_os_windows_snmp.xml.yml
+    - include_tasks: tasks/template_power_apc_ups_galaxy_3500_snmp.xml.yml
+    - include_tasks: tasks/template_power_apc_ups_smart_2200_rm_snmp.xml.yml
+    - include_tasks: tasks/template_power_apc_ups_smart_3000_xlm_snmp.xml.yml
+    - include_tasks: tasks/template_power_apc_ups_smart_rt_1000_rm_xl_snmp.xml.yml
+    - include_tasks: tasks/template_power_apc_ups_smart_rt_1000_xl_snmp.xml.yml
+    - include_tasks: tasks/template_power_apc_ups_smart_srt_5000_snmp.xml.yml
+    - include_tasks: tasks/template_power_apc_ups_smart_srt_8000_snmp.xml.yml
     - include_tasks: tasks/template_power_apc_ups_snmp.xml.yml
+    - include_tasks: tasks/template_power_apc_ups_symmetra_lx_snmp.xml.yml
+    - include_tasks: tasks/template_power_apc_ups_symmetra_rm_snmp.xml.yml
+    - include_tasks: tasks/template_power_apc_ups_symmetra_rx_snmp.xml.yml
     - include_tasks: tasks/template_san_huawei_5300v5_snmp.xml.yml
     - include_tasks: tasks/template_san_netapp_aff_a700_http.xml.yml
     - include_tasks: tasks/template_san_netapp_fas3220_snmp.xml.yml
     - include_tasks: tasks/template_server_chassis_ipmi.xml.yml
+    - include_tasks: tasks/template_server_cisco_ucs_manager_snmp.xml.yml
     - include_tasks: tasks/template_server_cisco_ucs_snmp.xml.yml
     - include_tasks: tasks/template_server_dell_idrac_snmp.xml.yml
+    - include_tasks: tasks/template_server_dell_r720_snmp.xml.yml
+    - include_tasks: tasks/template_server_dell_r740_snmp.xml.yml
+    - include_tasks: tasks/template_server_dell_r820_snmp.xml.yml
+    - include_tasks: tasks/template_server_dell_r840_snmp.xml.yml
+    - include_tasks: tasks/template_server_hp_bl460_snmp.xml.yml
+    - include_tasks: tasks/template_server_hp_bl920_snmp.xml.yml
+    - include_tasks: tasks/template_server_hp_dl360_snmp.xml.yml
+    - include_tasks: tasks/template_server_hp_dl380_snmp.xml.yml
     - include_tasks: tasks/template_server_hp_ilo_snmp.xml.yml
     - include_tasks: tasks/template_server_ibm_imm_snmp.xml.yml
     - include_tasks: tasks/template_server_intel_sr1530_ipmi.xml.yml
     - include_tasks: tasks/template_server_intel_sr1630_ipmi.xml.yml
     - include_tasks: tasks/template_server_supermicro_aten_snmp.xml.yml
-    - include_tasks: tasks/template_tel_asterisk_http.xml.yml
     - include_tasks: tasks/tristar_mppt_600V_snmp.xml.yml
     - include_tasks: tasks/tristar_mppt_snmp.xml.yml
     - include_tasks: tasks/tristar_pwm_snmp.xml.yml

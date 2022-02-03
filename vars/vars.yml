@@ -1,6 +1,7 @@
 ---
 # zabbix server
 
-server_url: http://localhost/zabbix/
+server_url: https://zabbix.starnet.cz/
+validate_certs: no
 
 # EOF
